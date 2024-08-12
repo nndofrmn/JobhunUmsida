@@ -1,10 +1,6 @@
 <template>
-  <div
-    class="min-h-screen bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 flex items-center justify-center"
-  >
-    <div
-      class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md transition-transform transform hover:scale-105"
-    >
+  <div class="min-h-screen bg-gray-100 flex items-center justify-center">
+    <div class="bg-white p-8 rounded-lg shadow-lg max-w-sm w-full">
       <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">Log In</h2>
       <form @submit.prevent="login">
         <div class="mb-6">
@@ -12,16 +8,18 @@
             for="email"
             class="block mb-2 text-sm font-medium text-gray-700"
           >
-            Username
+            Email Address
           </label>
           <input
             type="email"
+            id="email"
             v-model="userLogin.email"
-            class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-3"
+            class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3"
+            placeholder="your.email@example.com"
             required
           />
         </div>
-        <div class="mb-6">
+        <div class="mb-6 relative">
           <label
             for="password"
             class="block mb-2 text-sm font-medium text-gray-700"
@@ -29,21 +27,28 @@
             Password
           </label>
           <input
-            type="password"
+            :type="passwordFieldType"
+            id="password"
             v-model="userLogin.password"
-            class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-3"
+            class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3"
+            placeholder="••••••••"
             required
           />
+          <i
+            :class="passwordFieldIcon"
+            class="absolute right-3 top-3 cursor-pointer text-gray-600"
+            @click="togglePasswordVisibility"
+          ></i>
         </div>
         <button
           type="submit"
-          class="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm w-full px-5 py-3 text-center transition-transform transform hover:scale-105"
+          class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-3 text-center transition-transform transform hover:scale-105"
         >
           Log In
         </button>
         <button
           type="reset"
-          class="mt-4 block text-sm text-purple-500 hover:text-purple-800 text-center"
+          class="mt-4 block text-sm text-blue-500 hover:text-blue-700 text-center"
         >
           Forgot Password
         </button>
@@ -88,7 +93,7 @@
           >
             <path
               d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"
-            />
+            ></path>
           </svg>
           Sign in with Facebook
         </button>
@@ -99,7 +104,7 @@
           <svg class="w-6 h-6 mr-2" viewBox="0 0 496 512">
             <path
               d="M496 294.1c0 131.6-108.2 233.9-245.7 233.9-65.5 0-126.1-26.7-172.6-74.7-8.2-8.4-15.8-17.3-22.7-26.7-7.4-10-14.3-20.5-20.7-31.3C-3.2 324.7 7.7 247.5 52.5 205.5c12.1-11.3 25.1-20.4 39-28 11.6-6.3 23.9-11.3 36.5-14.8 16.5-4.7 33.3-6.9 50.1-6.9 15.7 0 30.8 2 45.3 5.7 14.2 3.7 27.6 9.2 40.1 16.4 13.8 8 26.6 17.5 38.2 28.4 13.3 12.4 25.3 26.3 36.2 41.3 12.4 16.7 23.1 34.6 31.9 53.7 1.3 2.9 2.4 5.9 3.6 8.8 5.7 14.2 10.3 28.6 14.6 43.1 4.8 15.5 8.6 31.1 11.7 46.8 4 20.5 6.6 41.1 7.5 61.7 0.2 4.3 0.4 8.5 0.5 12.8z"
-            />
+            ></path>
           </svg>
           Sign in with Apple
         </button>
@@ -117,31 +122,91 @@ const userLogin = ref({
   password: "",
 });
 const router = useRouter();
+const passwordFieldType = ref("password");
+const passwordFieldIcon = ref("fas fa-eye");
 
 const login = () => {
-  console.log(userLogin.value.email);
-  console.log(userLogin.value.password);
-  if (userLogin.value.email !== "" && userLogin.value.password !== "") {
-    router.push("/homepage"); // Ganti '/homepage' dengan rute tujuan setelah login
+  if (userLogin.value.email && userLogin.value.password) {
+    router.push("/homepage"); // Update with your desired route
   } else {
-    alert("Silakan isi email dan password");
+    // Display a message or handle login error here
+    console.error("Please fill in both fields.");
+  }
+};
+
+const togglePasswordVisibility = () => {
+  if (passwordFieldType.value === "password") {
+    passwordFieldType.value = "text";
+    passwordFieldIcon.value = "fas fa-eye-slash";
+  } else {
+    passwordFieldType.value = "password";
+    passwordFieldIcon.value = "fas fa-eye";
   }
 };
 </script>
 
 <style scoped>
-form {
-  animation: fadeIn 0.5s ease-in-out;
+/* General container styling */
+.bg-gray-100 {
+  background-color: #f7fafc;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Form container styling */
+.bg-white {
+  background-color: #ffffff;
+}
+
+/* Styling for form inputs */
+input[type="email"],
+input[type="password"] {
+  border-radius: 0.375rem; /* 6px */
+}
+
+/* Button styling */
+button {
+  border-radius: 0.375rem; /* 6px */
+}
+
+/* Focus states for form inputs */
+input:focus {
+  border-color: #3b82f6;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+}
+
+/* Icon styling */
+.fas {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+.fa-eye {
+  content: "\f06e";
+}
+
+.fa-eye-slash {
+  content: "\f070";
+}
+
+/* Hover effects for buttons */
+button:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s;
+}
+
+/* Styling for social media buttons */
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Text styling for links */
+a {
+  color: #3b82f6;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 </style>
