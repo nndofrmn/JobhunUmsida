@@ -6,7 +6,7 @@
         <!-- Left Side (Text) -->
         <div class="w-full max-w-md lg:max-w-6xl mt-48 ml-16">
           <h2 class="text-5xl font-semibold mb-4 font-inter">
-            WorkIt by Jobhun
+            Workit by Jobhun
           </h2>
           <p class="text-gray-700 text-3xl px-4 text-justify">
             Sedang mencari jasa penyedia corporate gift yang unik demi

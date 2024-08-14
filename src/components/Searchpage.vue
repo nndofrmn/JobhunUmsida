@@ -44,7 +44,6 @@
     </div>
   </div>
 
-  <footer />
 </template>
 
 <script setup>

@@ -77,7 +77,7 @@
 <script setup>
 import { ref } from "vue";
 import { useRoute } from "vue-router";
-import bundle from "../assets/Homepage/totebag.jpg";
+import bundle from "../assets/Homepage/bundle.jpg";
 </script>
 
 <style scoped>
