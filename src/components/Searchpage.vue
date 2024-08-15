@@ -60,6 +60,8 @@
       Next
     </button>
   </div>
+
+  <footer />
 </template>
 
 <script setup>
