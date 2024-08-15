@@ -9,7 +9,7 @@ const routes = [
   { path: "/login", component: Login },
   { path: "/homepage", component: Homepage },
   { path: "/search-page", component: SearchPage, name: "searchPage" },
-  { path: "/detail-page/:id", component: DetailPage, name: "detailPage" },
+  { path: "/detail-page/", component: DetailPage, name: "detailPage" },
   // Tambahkan rute lainnya jika ada
 ];
 

@@ -59,7 +59,7 @@
     >
       Next
     </button>
-  </dir>
+  </div>
 </template>
 
 <script setup>
