@@ -4,6 +4,7 @@ import TotebagImage from "@/assets/Homepage/totebag.jpg";
 import TshirtImage from "@/assets/Homepage/kaos.jpg";
 import LanyardImage from "@/assets/Homepage/lanyard.jpg";
 import IDCardImage from "@/assets/Homepage/idcard.jpg";
+import page from "../components/Detailpage.vue";
 // import MugImage from "../assets/Homepage/mug.jpg"; // Pastikan gambar ini ada
 
 // Ekspor array produk
@@ -13,7 +14,7 @@ export default [
     name: "Notebook",
     img: NotebookImage,
     price: 50000,
-    link: "/notebook",
+    link: page,
   },
   {
     id: 2,

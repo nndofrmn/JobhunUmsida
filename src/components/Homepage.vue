@@ -146,7 +146,7 @@
             </div>
           </div>
 
-          <div class="text-center text-2xl">
+          <div class="text-center text-3xl">
             <p class="mt-10 mb-5">Dan masih banyak lagi!</p>
             <router-link class="font-semibold mt-5">
               Gimana cara pemesanannya?
@@ -168,10 +168,10 @@
       </section>
 
       <!-- Flexbox Layout -->
-      <section class="mt-16 px-4">
+      <section class="mt-20 px-4">
         <div class="flex flex-wrap justify-center gap-8">
           <div
-            class="flex flex-col items-center w-[600px] h-[540px] p-4 bg-slate-50 rounded-lg shadow-md"
+            class="flex flex-col items-center w-[600px] h-[540px] p-6 bg-slate-50 rounded-lg shadow-md"
             v-for="(product, index) in products"
             :key="product.id"
           >
@@ -183,7 +183,7 @@
             <h3 class="text-lg font-semibold">{{ product.name }}</h3>
             <p class="text-gray-700 mt-2">Rp{{ product.price }},-</p>
             <router-link
-              :to="product.link"
+              :to="product.link + product.id"
               class="mt-4 px-6 py-4 bg-green-500 text-white rounded-xl hover:bg-green-600"
             >
               Detail Produk
@@ -211,5 +211,5 @@ import KeunggulanImage3 from "../assets/Homepage/keunggulan3.png";
 import KeunggulanImage4 from "../assets/Homepage/keunggulan4.png";
 
 // Import data produk dari file terpisah
-import products from "../Store/productData";
+import { products } from "../Store/productData";
 </script>

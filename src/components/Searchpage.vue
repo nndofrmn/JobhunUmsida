@@ -47,5 +47,5 @@
 </template>
 
 <script setup>
-import products from "../Store/productData";
+import { products } from "../Store/productData";
 </script>
