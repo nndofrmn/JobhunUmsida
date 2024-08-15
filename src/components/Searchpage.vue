@@ -21,22 +21,21 @@
 
   <!-- Rectangle Images and Text Columns -->
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10 px-10">
-    <!-- First Row: Images 1, 2, and 3 -->
     <div
       class="bg-white border-5 border-gray-400 rounded-lg overflow-hidden"
-      v-for="(product, index) in products"
+      v-for="(product, index) in paginatedProducts"
       :key="index"
     >
       <img
         :src="product.img"
-        alt="Notebook"
+        :alt="product.name"
         class="w-full h-[370px] object-cover rounded-md mb-2"
       />
       <div class="p-4 text-center border-slate-300 border-2">
         <p class="text-2xl font-bold mb-2">{{ product.name }}</p>
         <p class="text-3xl font-bold mb-4">Rp{{ product.price }},-</p>
         <router-link
-          :to="product.link + product.id"
+          :to="product.link"
           class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-900"
           >Detail produk</router-link
         >
@@ -44,84 +43,56 @@
     </div>
   </div>
 
+  <!-- Pagination Controls -->
+  <div class="flex justify-center mt-8 space-x-4">
+    <button
+      @click="prevPage"
+      :disabled="currentPage === 1"
+      class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400"
+    >
+      Previous
+    </button>
+    <button
+      @click="nextPage"
+      :disabled="currentPage === totalPages"
+      class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400"
+    >
+      Next
+    </button>
+  </div>
+
 </template>
 
 <script setup>
 import { ref, computed } from "vue";
-import notebook1 from "../assets/Homepage/notebook.jpg";
+import { products } from "../Store/productData";
 
-const products = [
-  {
-    id: 1,
-    name: "Mug",
-    price: "80.000",
-    img: notebook1,
-    link: "/detail-page/",
-  },
-];
+// State for pagination
+const currentPage = ref(1);
+const itemsPerPage = ref(6); // Number of products per page
+
+// Compute the paginated products
+const paginatedProducts = computed(() => {
+  const start = (currentPage.value - 1) * itemsPerPage.value;
+  const end = start + itemsPerPage.value;
+  return products.slice(start, end);
+});
+
+// Compute total pages
+const totalPages = computed(() => {
+  return Math.ceil(products.length / itemsPerPage.value);
+});
+
+// Pagination controls
+const nextPage = () => {
+  if (currentPage.value < totalPages.value) {
+    currentPage.value++;
+  }
+};
+
+const prevPage = () => {
+  if (currentPage.value > 1) {
+    currentPage.value--;
+  }
+};
 </script>
-
-<style scoped>
-.custom-image {
-  max-height: 190px;
-  object-fit: cover;
-}
-
-.custom-margin {
-  margin: 10px;
-}
-
-.grid {
-  display: grid;
-}
-
-.grid-cols-1 {
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-}
-
-.md\:grid-cols-3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.gap-4 {
-  gap: 1rem;
-}
-
-.inline-flex {
-  display: inline-flex;
-}
-
-.border {
-  border: 1px solid #d1d5db;
-}
-
-.rounded {
-  border-radius: 0.375rem;
-}
-
-.border-r {
-  border-right: 1px solid #d1d5db;
-}
-
-.px-4 {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-.py-2 {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-
-.hover\:bg-gray-100:hover {
-  background-color: #f3f4f6;
-}
-
-.text-green-500 {
-  color: #48bb78;
-}
-
-.text-white {
-  color: #fff;
-}
-</style>

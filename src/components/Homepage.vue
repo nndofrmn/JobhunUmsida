@@ -1,55 +1,56 @@
 <template>
-  <div>
+  <div class="mx-20">
     <Header />
     <main class="flex-grow bg-white">
+      <!-- Hero Section -->
       <div class="flex flex-wrap justify-center">
-        <!-- Left Side (Text) -->
-        <div class="w-full max-w-md lg:max-w-6xl mt-48 ml-16">
-          <h2 class="text-5xl font-semibold mb-4 font-inter">
-            Workit by Jobhun
-          </h2>
-          <p class="text-gray-700 text-3xl px-4 text-justify">
-            Sedang mencari jasa penyedia corporate gift yang unik demi
-            meningkatkan citra perusahaan sekaligus membangun hubungan yang
-            langgeng dengan klien, mitra bisnis, atau karyawan Anda? Temukan
-            solusinya di Workit by Jobhun, di sini kamu dapat memesan dan
-            kustomisasi corporate gift sesuai kebutuhan. Workit by Jobhun
-            merupakan layanan dari Jobhun yang menyediakan corporate gift untuk
-            klien, karyawan, hingga berbagai acara perusahaan.
-          </p>
-        </div>
+        <div
+          class="flex flex-col lg:flex-row w-full max-w-md lg:max-w-6xl ml-16"
+        >
+          <!-- Text Content -->
+          <div>
+            <h2 class="text-4xl font-semibold mb-4 font-inter">
+              WorkIt by Jobhun
+            </h2>
+            <p class="text-gray-700 text-lg text-justify w-[559px] h-auto">
+              Sedang mencari jasa penyedia corporate gift yang unik demi
+              meningkatkan citra perusahaan sekaligus membangun hubungan yang
+              langgeng dengan klien, mitra bisnis, atau karyawan Anda? Temukan
+              solusinya di Workit by Jobhun, di sini kamu dapat memesan dan
+              kustomisasi corporate gift sesuai kebutuhan. Workit by Jobhun
+              merupakan layanan dari Jobhun yang menyediakan corporate gift
+              untuk klien, karyawan, hingga berbagai acara perusahaan.
+            </p>
+          </div>
 
-        <!-- Right Side (Banner Image) -->
-        <div class="mt-24 ml-5">
-          <img
-            :src="bannerImage"
-            alt="Banner Image"
-            class="w-full max-w-[500px] h-auto"
-          />
+          <!-- Banner Image -->
+          <div
+            class="lg:w-1/3 mt-8 lg:mt-0 lg:ml-5 flex justify-center lg:justify-end"
+          >
+            <img :src="BannerImage" alt="Banner Image" class="w-full h-auto" />
+          </div>
         </div>
       </div>
 
-      <!-- Keunggulan -->
-      <section class="mt-16">
-        <h2 class="text-2xl lg:text-3xl font-semibold text-center mb-8">
+      <!-- Keunggulan Section -->
+      <section>
+        <h2 class="text-xs lg:text-2xl font-semibold text-center my-10 mb-8">
           Mengapa Harus Memesan di WorkIt by Jobhun?
         </h2>
-        <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 px-4 lg:px-20"
-        >
+        <div class="grid gap-8 xs:grid-cols-1 md:grid-cols-1 lg:grid-cols-2">
           <div
-            class="p-6 bg-custom-yellow rounded-lg shadow-md flex items-center mx-4 mr-10"
+            class="p-4 bg-custom-yellow rounded-lg shadow-md flex items-center"
           >
             <img
-              :src="keunggulanImage1"
+              :src="KeunggulanImage1"
               alt="keunggulan"
-              class="size-40 rounded-lg mr-8 ml-10 my-5"
+              class="size-28 rounded-lg mr-2 sm:mr-6 ml-2 sm:ml-4"
             />
             <div>
-              <h3 class="text-4xl font-semibold mb-2 mr-8">
+              <h3 class="text-lg sm:text-sm lg:text-base font-semibold mb-2">
                 Kreativitas tanpa batas
               </h3>
-              <p class="text-gray-700 text-2xl mr-10">
+              <p class="text-gray-700 text-xs sm:text-xs lg:text-sm">
                 Workit by Jobhun siap untuk bekerjasama dengan Anda dalam
                 menyediakan layanan corporate gift yang sesuai dengan identitas
                 perusahaan. Mulai dari desain yang inovatif hingga personalisasi
@@ -60,18 +61,18 @@
           </div>
 
           <div
-            class="p-6 bg-custom-yellow rounded-lg shadow-md flex items-center mx-4 mr-10"
+            class="p-4 sm:p-6 bg-custom-yellow rounded-lg shadow-md flex items-center"
           >
             <img
-              :src="keunggulanImage2"
+              :src="KeunggulanImage2"
               alt="keunggulan"
-              class="size-40 rounded-lg mr-8 ml-10"
+              class="size-28 rounded-lg mr-2 sm:mr-6 ml-2 sm:ml-4"
             />
             <div>
-              <h3 class="text-4xl font-semibold mb-2 mr-8">
+              <h3 class="text-lg sm:text-sm lg:text-base font-semibold mb-2">
                 Memiliki jenis produk yang beragam menyesuaikan bujet
               </h3>
-              <p class="text-gray-700 text-2xl mr-10">
+              <p class="text-gray-700 text-xs sm:text-xs lg:text-sm">
                 Mulai dari merchandise promosi hingga corporate gift karyawan
                 yang fungsional, kami memiliki beragam jenis produk yang siap
                 dipesan, dan dapat disesuaikan dengan kebutuhan dan bujet
@@ -81,16 +82,18 @@
           </div>
 
           <div
-            class="p-6 bg-custom-yellow rounded-lg shadow-md flex items-center mx-4 mr-10"
+            class="p-4 sm:p-6 bg-custom-yellow rounded-lg shadow-md flex items-center"
           >
             <img
-              :src="keunggulanImage3"
+              :src="KeunggulanImage3"
               alt="keunggulan"
-              class="size-40 rounded-lg mr-8 ml-10"
+              class="size-28 rounded-lg mr-2 sm:mr-6 ml-2 sm:ml-4"
             />
             <div>
-              <h3 class="text-4xl font-semibold mb-2">Kualitas bintang lima</h3>
-              <p class="text-gray-700 text-2xl mr-10">
+              <h3 class="text-lg sm:text-sm lg:text-base font-semibold mb-2">
+                Kualitas bintang lima
+              </h3>
+              <p class="text-gray-700 text-xs sm:text-xs lg:text-sm">
                 Kami menggunakan bahan material yang terbaik dan memerhatikan
                 setiap detail dalam setiap produksi. Dengan standar dan kualitas
                 tinggi, corporate gift dari kami bukan hanya sekadar hadiah,
@@ -101,18 +104,18 @@
           </div>
 
           <div
-            class="p-6 bg-custom-yellow rounded-lg shadow-md flex items-center mx-4 mr-10"
+            class="p-4 sm:p-6 bg-custom-yellow rounded-lg shadow-md flex items-center"
           >
             <img
-              :src="keunggulanImage4"
+              :src="KeunggulanImage4"
               alt="keunggulan"
-              class="rounded-lg mr-8 ml-10 size-40"
+              class="size-28 rounded-lg mr-2 sm:mr-6 ml-2 sm:ml-4"
             />
             <div>
-              <h3 class="text-4xl font-semibold mb-2">
+              <h3 class="text-lg sm:text-sm lg:text-base font-semibold mb-2">
                 Pelayanan yang luar biasa
               </h3>
-              <p class="text-gray-700 text-2xl mr-10">
+              <p class="text-gray-700 text-xs sm:text-xs lg:text-sm">
                 Kami tidak hanya menyediakan produk berkualitas, tetapi juga
                 memberikan pelayanan yang unggul. Kami berkomitmen untuk
                 memastikan setiap tahap, dari konsep hingga pengiriman, berjalan
@@ -125,108 +128,79 @@
 
       <!-- Produk yang Harus Dibeli -->
       <section class="mt-20">
-        <h2 class="text-2xl lg:text-3xl font-semibold text-center mb-8">
+        <h2 class="text-xs lg:text-2xl font-semibold text-center my-10 mb-8">
           Produk yang Harus Dibeli
         </h2>
         <div class="flex flex-wrap justify-center gap-8">
-          <!-- Produk 1 -->
-          <div class="flex flex-col items-center">
-            <img
-              :src="productImage1"
-              alt="Notebook"
-              class="w-[600px] h-[520px] rounded-md mb-1"
-            />
-            <h2 class="text-2xl font-semibold">Notebook</h2>
-          </div>
-
-          <!-- Produk 2 -->
-          <div class="flex flex-col items-center">
-            <img
-              :src="productImage2"
-              alt="Totebag"
-              class="w-[600px] h-[520px] object-cover rounded-md mb-1"
-            />
-            <h3 class="text-2xl font-semibold">Totebag</h3>
-          </div>
-
-          <!-- Produk 3 -->
-          <div class="flex flex-col items-center">
-            <img
-              :src="productImage3"
-              alt="T-shirt"
-              class="w-[600px] h-[520px] object-cover rounded-md mb-1"
-            />
-            <h3 class="text-2xl font-semibold">T-shirt</h3>
-          </div>
-
-          <!-- Produk 4 -->
-          <div class="flex flex-col items-center">
-            <img
-              :src="productImage4"
-              alt="Lanyard"
-              class="w-[600px] h-[520px] object-cover rounded-md mb-1"
-            />
-            <h3 class="text-2xl font-semibold">Lanyard</h3>
-          </div>
-
-          <!-- Produk 5 -->
-          <div class="flex flex-col items-center">
-            <img
-              :src="productImage5"
-              alt="ID Card"
-              class="w-[600px] h-[520px] object-cover rounded-md mb-1"
-            />
-            <h3 class="text-2xl font-semibold">ID Card</h3>
+          <div
+            v-for="product in products"
+            :key="product.name"
+            class="flex flex-col items-center p-4 bg-white shadow-md rounded-lg max-w-xs"
+          >
+            <div class="relative mb-4">
+              <img
+                :src="product.img"
+                :alt="product.name"
+                class="object-cover rounded-md w-80 h-48"
+              />
+            </div>
+            <h3 class="text-lg font-semibold mt-2">{{ product.name }}</h3>
           </div>
         </div>
 
-        <div class="text-center text-2xl">
-          <p class="mt-10 mb-5">Dan masih banyak lagi!</p>
-          <router-link class="font-semibold mt-5">
-            Gimana cara pemesanannya?
-          </router-link>
-          <p class="mt-5">
-            Tertarik bekerjasama dengan kami? Konsultasikan bersama marketing
-            kami melalui
-            <router-link class="text-green-500 no-underline hover:underline">
-              WhatsApp!
-            </router-link>
-          </p>
+        <div class="text-center text-xl mt-5">
+          <p class="mb-4">Dan masih banyak lagi!</p>
+          <router-link class="font-semibold"
+            >Gimana cara pemesanannya?</router-link
+          >
         </div>
+        <p class="mt-3 text-center">
+          Tertarik bekerjasama dengan kami? Konsultasikan bersama marketing kami
+          melalui
+          <router-link class="text-green-500 no-underline hover:underline"
+            >WhatsApp!</router-link
+          >
+        </p>
       </section>
 
       <!-- Text Dapatkan Produk -->
-      <section class="text-center text-4xl mt-10 font-semibold">
+      <section class="text-xs lg:text-2xl font-semibold text-center my-5">
         <p>Dapatkan produk-produk penunjang produktivitas kerjamu di sini!</p>
       </section>
 
       <!-- Flexbox Layout -->
-      <section class="mt-16 px-4">
+      <section class="mt-10 px-4">
         <div class="flex flex-wrap justify-center gap-8">
-          <!-- Flex Item 1 -->
           <div
-            class="flex flex-col items-center w-[600px] h-[540px] p-4 bg-slate-50 rounded-lg shadow-md"
+            class="flex flex-col items-center w-full sm:w-80 md:w-72 lg:w-80 h-auto p-6 bg-slate-50 rounded-lg shadow-md"
             v-for="(product, index) in products"
-            :key="index"
+            :key="product.id"
           >
             <img
               :src="product.img"
-              alt="Notebook"
-              class="w-full h-[370px] object-cover rounded-md mb-2"
+              :alt="product.name"
+              class="w-full h-48 object-cover rounded-md mb-4"
             />
-            <h3 class="text-lg font-semibold">{{ product.name }}</h3>
-            <p class="text-gray-700 mt-2">Rp{{ product.price }},-</p>
+            <h3 class="text-base sm:text-lg font-semibold mb-2">
+              {{ product.name }}
+            </h3>
+            <p class="text-gray-700 mb-4 text-sm sm:text-base">
+              Rp{{ product.price }},-
+            </p>
             <router-link
-              :to="product.link"
-              class="mt-4 px-6 py-4 bg-green-500 text-white rounded-xl hover:bg-green-600"
+              :to="product.link + product.id"
+              class="px-4 py-2 sm:px-6 sm:py-3 bg-green-500 text-white rounded-xl hover:bg-green-600"
             >
               Detail Produk
             </router-link>
           </div>
         </div>
 
-        <div class="text-center mt-8 text-2xl no-underline hover:underline">
-          <router-link :to="{ name: 'searchPage' }">
+        <div class="text-center mt-8 text-xs sm:text-sm">
+          <router-link
+            :to="{ name: 'searchPage' }"
+            class="no-underline hover:underline text-black"
+          >
             Cari produk lainnya ->
           </router-link>
         </div>
@@ -238,58 +212,12 @@
 
 <script setup>
 import { ref } from "vue";
-import BannerImage from "@/assets/Homepage/banner-image.png";
-import ProductImage1 from "@/assets/Homepage/notebook.jpg";
-import ProductImage2 from "@/assets/Homepage/totebag.jpg";
-import ProductImage3 from "@/assets/Homepage/kaos.jpg";
-import ProductImage4 from "@/assets/Homepage/lanyard.jpg";
-import ProductImage5 from "@/assets/Homepage/idcard.jpg";
-import KeunggulanImage1 from "@/assets/Homepage/keunggulan1.png";
-import KeunggulanImage2 from "@/assets/Homepage/keunggulan2.png";
-import KeunggulanImage3 from "@/assets/Homepage/keunggulan3.png";
-import KeunggulanImage4 from "@/assets/Homepage/keunggulan4.png";
+import BannerImage from "../assets/Homepage/banner-image.png";
+import KeunggulanImage1 from "../assets/Homepage/keunggulan1.png";
+import KeunggulanImage2 from "../assets/Homepage/keunggulan2.png";
+import KeunggulanImage3 from "../assets/Homepage/keunggulan3.png";
+import KeunggulanImage4 from "../assets/Homepage/keunggulan4.png";
 
-const bannerImage = ref(BannerImage);
-const productImage1 = ref(ProductImage1);
-const productImage2 = ref(ProductImage2);
-const productImage3 = ref(ProductImage3);
-const productImage4 = ref(ProductImage4);
-const productImage5 = ref(ProductImage5);
-const keunggulanImage1 = ref(KeunggulanImage1);
-const keunggulanImage2 = ref(KeunggulanImage2);
-const keunggulanImage3 = ref(KeunggulanImage3);
-const keunggulanImage4 = ref(KeunggulanImage4);
-
-const products = [
-  {
-    name: "Mug",
-    price: "80.000",
-    img: ProductImage1,
-    link: "/detail-product/1",
-  },
-  {
-    name: "Mug",
-    price: "80.000",
-    img: ProductImage2,
-    link: "/detail-product/2",
-  },
-  {
-    name: "Mug",
-    price: "80.000",
-    img: ProductImage3,
-    link: "/detail-product/3",
-  },
-  {
-    name: "Mug",
-    price: "80.000",
-    img: ProductImage4,
-    link: "/detail-product/4",
-  },
-  {
-    name: "Mug",
-    price: "80.000",
-    img: ProductImage5,
-    link: "/detail-product/4",
-  },
-];
+// Import data produk dari file terpisah
+import { products } from "../Store/productData";
 </script>
