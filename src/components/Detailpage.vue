@@ -66,7 +66,7 @@
         tentunya nggak ninggalin bekas!
       </p>
       <p><b>3. Jobhun Totebag</b><br />Your favorite go-to totebag ever!</p>
-      <p><b>4. Mug</b></p>
+      <p><b>4. Mug besarr dan kecil</b></p>
     </div>
   </dir>
 </template>

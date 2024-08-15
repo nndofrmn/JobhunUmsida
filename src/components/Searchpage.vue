@@ -23,7 +23,7 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10 px-10">
     <div
       class="bg-white border-5 border-gray-400 rounded-lg overflow-hidden"
-      v-for="(product, index) in products"
+      v-for="(product, index) in paginatedProducts"
       :key="index"
     >
       <img
@@ -43,9 +43,57 @@
     </div>
   </div>
 
+  <!-- Pagination Controls -->
+  <div class="flex justify-center mt-8 space-x-4">
+    <button
+      @click="prevPage"
+      :disabled="currentPage === 1"
+      class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400"
+    >
+      Previous
+    </button>
+    <button
+      @click="nextPage"
+      :disabled="currentPage === totalPages"
+      class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400"
+    >
+      Next
+    </button>
+  </div>
+
   <footer />
 </template>
 
 <script setup>
+import { ref, computed } from "vue";
 import { products } from "../Store/productData";
+
+// State for pagination
+const currentPage = ref(1);
+const itemsPerPage = ref(6); // Number of products per page
+
+// Compute the paginated products
+const paginatedProducts = computed(() => {
+  const start = (currentPage.value - 1) * itemsPerPage.value;
+  const end = start + itemsPerPage.value;
+  return products.slice(start, end);
+});
+
+// Compute total pages
+const totalPages = computed(() => {
+  return Math.ceil(products.length / itemsPerPage.value);
+});
+
+// Pagination controls
+const nextPage = () => {
+  if (currentPage.value < totalPages.value) {
+    currentPage.value++;
+  }
+};
+
+const prevPage = () => {
+  if (currentPage.value > 1) {
+    currentPage.value--;
+  }
+};
 </script>

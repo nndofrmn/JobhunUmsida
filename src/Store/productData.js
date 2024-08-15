@@ -13,6 +13,7 @@ const products = [
     id: 1,
     name: "Notebook",
     img: NotebookImage,
+    price: 50000,
     link: "/detail-page/",
   },
   {

@@ -2,8 +2,8 @@
 <template>
   <header class="bg-white text-black p-4 shadow-md w-full border-bottom">
     <div class="mx-auto flex items-center justify-between mt-8">
-      <img :src="logo" alt="Logo" class="w-32 relative left-28" />
-      <nav class="flex space-x-6 text-3xl font-semibold">
+      <img :src="logo" alt="Logo" class="w-16 relative left-28" />
+      <nav class="flex space-x-6 text-xl font-semibold">
         <router-link to="/cari-expert" class="hover:underline text-custom-black"
           >Cari Expert</router-link
         >
