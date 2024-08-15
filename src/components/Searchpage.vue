@@ -59,9 +59,7 @@
     >
       Next
     </button>
-  </div>
-
-  <footer />
+  </dir>
 </template>
 
 <script setup>
